@@ -1,0 +1,196 @@
+
+<html>
+<head>
+   <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script> -->
+   <script src="../libs/jquery/v3.6.3/jquery.min.js"></script>
+   
+   <title> Covid19 Country Wise Status Project </title>
+   <style>
+      .text-center {
+         text-align: center;
+      }
+      #mytable {
+         border-collapse: collapse;
+         width: 100%;
+      }
+      #mytable td,
+      #mytable th {
+         border: 1px solid #ddd;
+         padding: 8px;
+      }
+      #mytable tr:nth-child(even) {
+         background-color: #f2f2f2;
+      }
+      #mytable th {
+         padding-top: 12px;
+         padding-bottom: 12px;
+         text-align: left;
+         background-color: #008b86;
+         color: white;
+      }
+   </style>
+</head>
+<body>
+   <h2 class="text-center"> Covid19 Country Wise Status Project </h2>
+   <div>
+		<h4>Covid19 Country Wise Status Project</h4>
+		Here, we will build the actual project. It will be in three parts: JavaScript AJAX code to perform HTTP requests, HTML body to show the content, and CSS styling to make it user-friendly. We used the jQuery AJAX library to make the code more user-readable and easy to use.		
+		<br/>
+		<h4>HTTP Response Body</h4>
+		Before going into details about the actual HTML body code to represent the countrywise Covid19 status, we need to go through the API response and understand its structure.
+
+        
+		<h4>Below is a part of the API response that we are getting −</h4>   
+   </div>
+   
+   <div>
+		{
+		   "ID": "027ce495-cf80-48da-afb7-6b8f95b12a01",
+		   "Message": "",
+		   "Global": {
+			  "NewConfirmed": 208060,
+			  "TotalConfirmed": 671410179,
+			  "NewDeaths": 2047,
+			  "TotalDeaths": 6771936,
+			  "NewRecovered": 0,
+			  "TotalRecovered": 0,
+			  "Date": "2023-02-18T04:36:09.159Z"
+		   },
+		   "Countries": [
+			  {
+				 "ID": "2390f7cb-1c24-4164-bfc3-688afed8bbe7",
+				 "Country": "Afghanistan",
+				 "CountryCode": "AF",
+				 "Slug": "afghanistan",
+				 "NewConfirmed": 16, 
+				 "TotalConfirmed": 209072,
+				 "NewDeaths": 0,
+				 "TotalDeaths": 7896,
+				 "NewRecovered": 0,
+				 "TotalRecovered": 0,
+				 "Date": "2023-02-18T04:36:09.159Z",
+				 "Premium": {}
+			  },
+			  {
+				 "ID": "8591babe-97a3-44f5-8e38-06df8ae67a55",
+				 "Country": "Albania",
+				 "CountryCode": "AL",
+				 "Slug": "albania",
+				 "NewConfirmed": 9,
+				 "TotalConfirmed": 334273,
+				 "NewDeaths": 0,
+				 "TotalDeaths": 3596,
+				 "NewRecovered": 0,
+				 "TotalRecovered": 0,
+				 "Date": "2023-02-18T04:36:09.159Z",
+				 "Premium": {}
+			  },
+			  ...
+		   ]
+		   "Date": "2023-02-18T04:36:09.159Z"
+		}
+   
+   </div>
+
+   <!-- Table -->
+   <table id="mytable">
+      <thead>
+         <th> Country Name </th>
+         <th> New Confirmed </th>
+         <th> New Deaths </th>
+         <th> New Recovered </th>
+         <th> Total Confirmed </th>
+         <th> Total Deaths </th>
+         <th> Total Recovered </th>
+      </thead>
+   </table>
+   
+   
+   <script>
+      var mytable = document.getElementById('mytable');
+	  alert('About to call API...');
+
+      var covid19_data =
+	   {
+		   "ID": "027ce495-cf80-48da-afb7-6b8f95b12a01",
+		   "Message": "",
+		   "Global": {
+			  "NewConfirmed": 208060,
+			  "TotalConfirmed": 671410179,
+			  "NewDeaths": 2047,
+			  "TotalDeaths": 6771936,
+			  "NewRecovered": 0,
+			  "TotalRecovered": 0,
+			  "Date": "2023-02-18T04:36:09.159Z"
+		   },
+		   "Countries": [
+			  {
+				 "ID": "2390f7cb-1c24-4164-bfc3-688afed8bbe7",
+				 "Country": "Afghanistan",
+				 "CountryCode": "AF",
+				 "Slug": "afghanistan",
+				 "NewConfirmed": 16, 
+				 "TotalConfirmed": 209072,
+				 "NewDeaths": 0,
+				 "TotalDeaths": 7896,
+				 "NewRecovered": 0,
+				 "TotalRecovered": 0,
+				 "Date": "2023-02-18T04:36:09.159Z",
+				 "Premium": {}
+			  },
+			  {
+				 "ID": "8591babe-97a3-44f5-8e38-06df8ae67a55",
+				 "Country": "Albania",
+				 "CountryCode": "AL",
+				 "Slug": "albania",
+				 "NewConfirmed": 9,
+				 "TotalConfirmed": 334273,
+				 "NewDeaths": 0,
+				 "TotalDeaths": 3596,
+				 "NewRecovered": 0,
+				 "TotalRecovered": 0,
+				 "Date": "2023-02-18T04:36:09.159Z",
+				 "Premium": {}
+			  }			  
+		   ]
+		   "Date": "2023-02-18T04:36:09.159Z"
+		};
+      
+      // AJAX HTTP Request
+      var myurl = 'https://api.covid19api.com/summary';
+      myurl = covid19_data;
+      myurl = '/db_json/covid19_data.json';
+	  myurl = '/ABSOnline_Docs/fetch_demo/db_json/covid19_data.json';
+	  
+	  alert('About to call API...');
+      $.ajax({
+         url: myurl,
+         type: 'GET',
+         success: function (response) {
+            let data = response.Countries;
+            console.log(data);
+            let element = '';
+            data.forEach((country) => {
+               element +=
+               '<tr>' +
+			   '<td>' + country.Country +'</td>' +
+               '<td>' + country.NewConfirmed + '</td>' +
+               '<td>' + country.NewDeaths + '</td>' +
+               '<td>' + country.NewRecovered + '</td>' +
+               '<td>' + country.TotalConfirmed + '</td>' +
+               '<td>' + country.TotalDeaths + '</td>' +
+               '<td>' + country.TotalRecovered + '</td>' +
+			   '</tr>'
+            });
+            mytable.innerHTML += element;
+         },
+		 error: function(xhr) {
+		    alert('Error ' + xhr);
+		 },
+		 failure: function(xhr) {
+		    alert('Error ' + xhr);
+		 }
+      });
+   </script>
+ </body>
+</html>

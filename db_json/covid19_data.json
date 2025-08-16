@@ -1,0 +1,44 @@
+	   {
+		   "ID": "027ce495-cf80-48da-afb7-6b8f95b12a01",
+		   "Message": "",
+		   "Global": {
+			  "NewConfirmed": 208060,
+			  "TotalConfirmed": 671410179,
+			  "NewDeaths": 2047,
+			  "TotalDeaths": 6771936,
+			  "NewRecovered": 0,
+			  "TotalRecovered": 0,
+			  "Date": "2023-02-18T04:36:09.159Z"
+		   },
+		   "Countries": [
+			  {
+				 "ID": "2390f7cb-1c24-4164-bfc3-688afed8bbe7",
+				 "Country": "Afghanistan",
+				 "CountryCode": "AF",
+				 "Slug": "afghanistan",
+				 "NewConfirmed": 16, 
+				 "TotalConfirmed": 209072,
+				 "NewDeaths": 0,
+				 "TotalDeaths": 7896,
+				 "NewRecovered": 0,
+				 "TotalRecovered": 0,
+				 "Date": "2023-02-18T04:36:09.159Z",
+				 "Premium": {}
+			  },
+			  {
+				 "ID": "8591babe-97a3-44f5-8e38-06df8ae67a55",
+				 "Country": "Albania",
+				 "CountryCode": "AL",
+				 "Slug": "albania",
+				 "NewConfirmed": 9,
+				 "TotalConfirmed": 334273,
+				 "NewDeaths": 0,
+				 "TotalDeaths": 3596,
+				 "NewRecovered": 0,
+				 "TotalRecovered": 0,
+				 "Date": "2023-02-18T04:36:09.159Z",
+				 "Premium": {}
+			  },
+		   ],
+		   "Date": "2023-02-18T04:36:09.159Z"
+		}

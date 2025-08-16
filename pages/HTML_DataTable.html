@@ -1,0 +1,104 @@
+
+<html>
+<head>
+   <!-- <script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"> </script> -->
+   <!-- <link rel = "stylesheet" href = "https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css" /> -->
+   <!-- <script src = "https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"> </script>  -->
+
+   <script src = "../libs/jquery/v3.6.3/jquery.min.js"> </script>
+   <link rel = "stylesheet" href = "../datatables-net/v1.10.22/css/jquery.dataTables.min.css" />
+   <script src = "../datatables-net/v1.10.22/js/jquery.dataTables.min.js"> </script>
+
+</head>
+<body>
+   <h3> Using the Data table plugin API to add extra features in the table </h2>
+   <table id = "countries">
+      <thead>
+         <tr>
+            <th> Country </th>
+            <th> Capital </th>
+            <th> Continent </th>
+            <th> Population </th>
+            <th> GDP </th>
+         </tr>
+      </thead>
+      <tr>
+         <td> India </td>
+         <td> New Delhi </td>
+         <td> Asia </td>
+         <td> 1,300,000,000 </td>
+         <td> 2,000,000,000 </td>
+      </tr>
+      <tr>
+         <td> United States </td>
+         <td> Washington, D.C. </td>
+         <td> North America </td>
+         <td> 325,000,000 </td>
+         <td> 18,000,000,000 </td>
+      </tr>
+      <tr>
+         <td> United Kingdom </td>
+         <td> London </td>
+         <td> Europe </td>
+         <td> 65,000,000 </td>
+         <td> 2,500,000,000 </td>
+      </tr>
+      <tr>
+         <td> France </td>
+         <td> Paris </td>
+         <td> Europe </td>
+         <td> 65,000,000 </td>
+         <td> 2,500,000,000 </td>
+      </tr>
+      <tr>
+         <td> Germany </td>
+         <td> Berlin </td>
+         <td> Europe </td>
+         <td> 80,000,000 </td>
+         <td> 3,500,000,000 </td>
+      </tr>
+      <tr>
+         <td> Italy </td>
+         <td> Rome </td>
+         <td> Europe </td>
+         <td> 60,000,000 </td>
+         <td> 2,000,000,000 </td>
+      </tr>
+      <tr>
+         <td> Japan </td>
+         <td> Tokyo </td>
+         <td> Asia </td>
+         <td> 125,000,000 </td>
+         <td> 4,500,000,000 </td>
+      </tr>
+      <tr>
+         <td> China </td>
+         <td> Beijing </td>
+         <td> Asia </td>
+         <td> 1,350,000,000 </td>
+         <td> 10,000,000,000 </td>
+      </tr>
+      <tr>
+         <td> Russia </td>
+         <td> Moscow </td>
+         <td> Europe </td>
+         <td> 145,000,000 </td>
+         <td> 1,500,000,000 </td>
+      </tr>
+   </table>
+   </div>
+   <script>
+      $(document).ready(function () {
+         $("#countries").DataTable({
+            "ordering": true,
+            "info": true,
+            "autoWidth": true,
+            "responsive": true,
+            "paging": true,
+            "lengthChange": true,
+            "searching": true,
+         });
+      });
+   </script>
+</body>
+</html>
